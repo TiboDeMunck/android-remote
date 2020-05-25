@@ -1,4 +1,5 @@
 const cors = require('cors');
+const ip = require('ip')
 
 const express = require('express'),
   app = express(),
@@ -17,7 +18,7 @@ app.listen(port);
 //cors
 app.use(cors())
 
-console.log('API server started on: ' + port);
+console.log(`API server started on: ${ip.address()}:${port}`);
 
 var routes = require('./app/routes/appRoutes'); //importing route
 routes(app); //register the route
