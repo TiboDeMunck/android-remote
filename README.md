@@ -2,11 +2,13 @@
 Android APK &amp; NodeJS Rest API
 
 ## Requirements
-Python 2.7, NodeJS, (foreverJS not required but advised)
+* [Python 2.7](https://www.python.org/downloads/release/python-2717/)
+* [NodeJS 12+](https://nodejs.org/en/) 
+* foreverJS not required but advised: npm install forever -g
 
 ## Startup
 * Install APK on phone
 * Run "Desktop Autoplay API.bat"
 
 ## TODO
-Only works for localhost 192.168.0.156, will change in future to allow all private networks
+Loop requests on holddown of button in android
