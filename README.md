@@ -11,7 +11,7 @@ Android APK &amp; NodeJS Rest API
 * Run "Desktop Autoplay API.bat"
 
 ## Support
-Android Remote API now supports youtube, netflix, twitch & spotify (Not yet patched to only open one activity so will open multiple activities in some cases)
+Android Remote API now supports youtube, netflix, twitch & spotify (Android Remote APP not yet patched to only open one activity so will open multiple activities in some cases)
 
 ## TODO
 Loop requests on holddown of button in android
