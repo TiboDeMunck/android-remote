@@ -25,4 +25,10 @@ module.exports = function (app) {
 
   app.route('/quieter')
     .get(controller.quieter)
+
+  app.route('/next')
+    .get(controller.next)
+
+  app.route('/previous')
+    .get(controller.previous)
 };

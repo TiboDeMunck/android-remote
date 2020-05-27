@@ -1,10 +1,6 @@
 const open = require('open');
 const robot = require("robotjs");
 
-let screenSize = robot.getScreenSize();
-let x = screenSize.width / 2;
-let y = screenSize.height / 2;
-
 //controller for incoming data
 exports.play_video = function (req, res) {
   let data = req.body.url
@@ -12,8 +8,9 @@ exports.play_video = function (req, res) {
 
   if (data !== "") {
     playUrl = getUrl(data)
-    if (!checkUrl(playUrl, ["youtu", "netflix", "spotify", "twitch"])) res.send("Didn't receive a correct link")
-    else open(playUrl)
+    // if (!checkUrl(playUrl, ["youtu", "netflix", "spotify", "twitch"])) res.send("Didn't receive a correct link")
+    // else 
+    open(playUrl)
       .then(() => res.send("success"))
       .catch((err) => res.send(err))
   } else res.send("Didn't receive a link")
@@ -40,9 +37,7 @@ let checkUrl = function (url, checkList) {
 
 //controls
 exports.fullscreen = function (req, res) {
-  robot.moveMouse(x, y);
-  robot.mouseClick();
-  robot.mouseClick();
+  robot.keyTap("f")
   res.send("success")
 }
 
@@ -62,8 +57,7 @@ exports.close = function (req, res) {
 }
 
 exports.play = function (req, res) {
-  robot.moveMouse(x, y);
-  robot.mouseClick();
+  robot.keyTap("space")
   res.send("success")
 }
 
@@ -74,5 +68,15 @@ exports.louder = function (req, res) {
 
 exports.quieter = function (req, res) {
   robot.keyTap("down")
+  res.send("success")
+}
+
+exports.next = function (req, res) {
+  robot.keyTap("n", "shift")
+  res.send("success")
+}
+
+exports.previous = function (req, res) {
+  robot.keyTap("p", "shift")
   res.send("success")
 }
