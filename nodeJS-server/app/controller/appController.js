@@ -5,20 +5,31 @@ let keys;
 try {
   keys = require("../keys/appKeys.json")
 } catch {
-  keys = {"fullscreen":["f"],"play":["space"],"plus":["right"],"minus":["left"],"louder":["audio_vol_up"],"quieter":["audio_vol_down"],"next":["n","shift"],"previous":["p","shift"]}
+  keys = {
+    "fullscreen": ["f"],
+    "play": ["space"],
+    "plus": ["right"],
+    "minus": ["left"],
+    "louder": ["audio_vol_up"],
+    "quieter": ["audio_vol_down"],
+    "next": ["n", "shift"],
+    "previous": ["p", "shift"]
+  }
 }
 let allowKeys = require("../keys/allowedKeys.js").allowedKeys
 
 //controller for incoming data
 exports.play_video = function (req, res) {
   let data = req.body.url
+  let incognito = req.body.incognito
   let playUrl = ""
 
   if (data !== "") {
     playUrl = getUrl(data)
-    // if (!checkUrl(playUrl, ["youtu", "netflix", "spotify", "twitch"])) res.send("Didn't receive a correct link")
-    // else 
-    open(playUrl)
+    if (incognito === "true") open(playUrl, {app: ['chrome', '--incognito']})
+      .then(() => res.send("success"))
+      .catch((err) => res.send(err))
+    else open(playUrl)
       .then(() => res.send("success"))
       .catch((err) => res.send(err))
   } else res.send("Didn't receive a link")
@@ -129,7 +140,7 @@ exports.keys = function (req, res) {
           else keys[name] = [response[name][0], response[name][1]]
         } else keys[name] = [response[name][0]]
       });
-      let file =  JSON.stringify(keys)
+      let file = JSON.stringify(keys)
       fs.writeFile('./app/keys/appKeys.json', file, (err) => {
         if (err) res.send(err);
         else res.send("success")
