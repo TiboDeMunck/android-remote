@@ -1,7 +1,12 @@
 const open = require('open');
 const robot = require("robotjs");
 const fs = require("fs")
-let keys = require("../keys/appKeys.json")
+let keys;
+try {
+  keys = require("../keys/appKeys.json")
+} catch {
+  keys = {"fullscreen":["f"],"play":["space"],"plus":["right"],"minus":["left"],"louder":["audio_vol_up"],"quieter":["audio_vol_down"],"next":["n","shift"],"previous":["p","shift"]}
+}
 let allowKeys = require("../keys/allowedKeys.js").allowedKeys
 
 //controller for incoming data
