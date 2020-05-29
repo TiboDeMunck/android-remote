@@ -9,7 +9,7 @@ Android APK &amp; NodeJS Rest API
 * Install APK on phone
 * Run "Desktop Autoplay API.bat"
 
-## Button Preset Syntax
+## Button Preset Syntax for Android App
 * button [+ modifier]
     * Button: any button from [RobotJS](http://robotjs.io/docs/syntax#keys)
     * modifier: alt, command (win), control, and shift  
