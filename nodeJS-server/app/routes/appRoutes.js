@@ -31,4 +31,7 @@ module.exports = function (app) {
 
   app.route('/previous')
     .get(controller.previous)
+
+  app.route('/keys')
+    .post(controller.keys)
 };
