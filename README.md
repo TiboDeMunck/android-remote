@@ -14,7 +14,7 @@ Android APK &amp; NodeJS Rest API
     * Button: any button from [RobotJS](http://robotjs.io/docs/syntax#keys)
     * modifier: alt, command (win), control, and shift  
 or  
-*click([button],[double]) [+ move(x, y)]
+* click([button],[double]) [+ move(x, y)]
     * button: left, right, or middle
     * x: int or "middle" (where middle = screenwidth/2)
     * y: int or "middle" (where middle = screenheight/2)
