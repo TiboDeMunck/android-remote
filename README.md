@@ -4,7 +4,7 @@ Android APK &amp; NodeJS Rest API
 ## Requirements
 * [Python 2.7](https://www.python.org/downloads/release/python-2717/)
 * [NodeJS 12+](https://nodejs.org/en/) 
-* foreverJS not required but advised: npm install forever -g
+* pm2 not required but advised: npm install pm2 -g
 
 ## Startup
 * Install APK on phone
