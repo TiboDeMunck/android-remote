@@ -2,7 +2,7 @@
 node_modules
 
 #Ignore same bat but with forever instead of node
-ForeverStartAPI.bat
+PM2StartAPI.bat
 
 #ignore key.json
 appKeys.json
