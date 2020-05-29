@@ -1,6 +1,7 @@
 const open = require('open');
 const robot = require("robotjs");
 const fs = require("fs")
+const defaultBrowser = require('x-default-browser');
 let keys;
 try {
   keys = require("../keys/appKeys.json")
@@ -29,11 +30,37 @@ exports.play_video = function (req, res) {
 
   if (data !== "") {
     playUrl = getUrl(data)
-    if (incognito === "true") open(playUrl, {
-        app: ['chrome', '--incognito']
+    if (incognito === "true") defaultBrowser(function (err, response) { //check default browser
+      let privacy = ""
+      let browser = ""
+      if (response.identity == "msedgehtm"){
+        privacy = "--private"
+        browser = "MicrosoftEdge"
+      } else if(response.isIE){
+        privacy = "-private"
+        browser = "iexplore"
+      } else if(response.isSafari){
+        privacy = ""
+        browser = "safari"
+      } else if(response.isFirefox){
+        privacy = "-private"
+        browser = "firefox"
+      } else if(response.isChrome){
+        privacy = "--incognito"
+        browser = "chrome"
+      } else if(response.isChromium){
+        privacy = "--incognito"
+        browser = "chromium"
+      } else if(response.isOpera){
+        privacy = "--private"
+        browser = "opera"
+      }
+      open(playUrl, {
+        app: [browser, privacy]
       })
       .then(() => res.send("success"))
       .catch((err) => res.send(err))
+    })
     else open(playUrl)
       .then(() => res.send("success"))
       .catch((err) => res.send(err))
