@@ -7,7 +7,8 @@ Android APK &amp; NodeJS Rest API
 
 ## Startup
 * Install APK on phone
-* Run "Desktop Autoplay API.bat"
+* Run "StartAPI.bat" to start (will install pm2 globally, if you don't want this please edit the bat file or just run de api with node from commandline)
+* Run "StopAPI.bat" to stop
 
 ## Button Preset Syntax for Android App
 * button [+ modifier]
