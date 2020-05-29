@@ -19,7 +19,7 @@ Android APK &amp; NodeJS Rest API
     * x: int or "middle" (where middle = screenwidth/2)
     * y: int or "middle" (where middle = screenheight/2)  
 
-example: f5 + control -> presses control and f5 at the same time
+example: f5 + control -> presses control and f5 at the same time  
 example: click(right, true) + move(middle, 500) -> moves mouse to middle of width of screen and 500 pixels height, then double clicks  
 example: click() -> clicks once at position of mouse  
 example: click(middle) + move(middle, middle) -> moves mouse to center of the screen and middle clicks
