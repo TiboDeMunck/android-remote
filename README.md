@@ -25,5 +25,8 @@ example: click(right, true) + move(middle, 500) -> moves mouse to middle of widt
 example: click() -> clicks once at position of mouse  
 example: click(middle) + move(middle, middle) -> moves mouse to center of the screen and middle clicks
 
+## Last update
+Added incognito default browser support (experimental: works for chrome, iexplore, microsoft edge, probably firefox & chromium, maybe opera, not safari.
+
 ## TODO
 add support for multiple modifier keys
