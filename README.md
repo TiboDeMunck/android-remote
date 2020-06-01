@@ -8,6 +8,7 @@ Android APK &amp; NodeJS Rest API
 ## Startup
 * Install APK on phone
 * Run "StartAPI.bat" to start (will install pm2 globally, if you don't want this please edit the bat file or just run de api with node from commandline)
+   * To view on which ip your pc is running the api, open file "ip.txt" after running StartAPI.bat.
 * Run "StopAPI.bat" to stop
 
 ## Button Preset Syntax for Android App
