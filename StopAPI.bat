@@ -1,3 +1,2 @@
 @echo off
-cd /d "%~dp0/nodeJS-server"
-pm2 stop android_remote_api
+pm2 stop android_remote_api && pm2 delete android_remote_api
