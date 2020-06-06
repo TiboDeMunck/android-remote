@@ -26,6 +26,9 @@ module.exports = function (app) {
   app.route('/quieter')
     .get(controller.quieter)
 
+  app.route('/mute')
+    .get(controller.mute)
+
   app.route('/next')
     .get(controller.next)
 
