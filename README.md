@@ -22,7 +22,7 @@ Android APK &amp; NodeJS Rest API
         * if only x has a value, it will automaticly take the middle of your screen for x and y
     * y: int or "middle" (where middle = screenheight/2)  
 
-### example: 
+### examples: 
 ``` f5 + control ```  
 -> presses control and f5 at the same time  
 ``` down + control + shift ```  
@@ -35,6 +35,7 @@ Android APK &amp; NodeJS Rest API
 -> moves mouse to center of the screen and middle clicks  
 ``` move(middle) ```  
 -> moves to center of the screen  
+  
 please note that the order of the inputs is not important
 
 ## Last update
