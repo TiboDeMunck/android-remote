@@ -14,7 +14,7 @@ Android APK &amp; NodeJS Rest API
 ## Button Preset Syntax for Android App
 * button [+ modifiers]
     * Button: any key from [RobotJS](http://robotjs.io/docs/syntax#keys)
-    * modifier: alt, command (win), control, and shift  
+    * modifier: alt, command, control, and shift  
 * click([button][, double]) [+ move(x[, y])]
     * button: left, right, or middle
     * double: true for double click
