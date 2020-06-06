@@ -3,13 +3,13 @@ Android APK &amp; NodeJS Rest API
 
 ## Requirements
 * [Python 2.7](https://www.python.org/downloads/release/python-2717/)
-* [NodeJS 12+](https://nodejs.org/en/) 
+* [NodeJS 12+](https://nodejs.org/en/)  
 
 ## Startup
 * Install APK on phone
 * Run "StartAPI.bat" to start (will install pm2 globally, if you don't want this please edit the bat file or just run de api with node from commandline)
    * To view on which ip your pc is running the api, open file "ip.txt" after running StartAPI.bat.
-* Run "StopAPI.bat" to stop
+* Run "StopAPI.bat" to stop  
 
 ## Button Preset Syntax for Android App
 * button [+ modifiers]
@@ -36,10 +36,10 @@ Android APK &amp; NodeJS Rest API
 ``` move(middle) ```  
 -> moves to center of the screen  
   
-please note that the order of the inputs is not important
+Please note that the order of the inputs is not important!  
 
 ## Last update
-Added incognito default browser support (experimental: works for chrome, iexplore, microsoft edge, probably firefox & chromium, maybe opera, not safari.
+Added incognito default browser support (experimental: works for chrome, iexplore, microsoft edge, probably firefox & chromium, maybe opera, not safari.  
 
 ## TODO
 make change buttons more user friendly
