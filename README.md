@@ -39,7 +39,7 @@ Android APK &amp; NodeJS Rest API
 -> moves mouse to center of the screen and middle clicks  
   
 ``` move(middle) ```  
--> moves to center of the screen  
+-> moves mouse to center of the screen  
   
 Please note that the order of the inputs is not important!  
 
