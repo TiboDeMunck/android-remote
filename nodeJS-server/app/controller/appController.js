@@ -146,11 +146,11 @@ function pressKey(keyName) {
       else click(command[0])
     } else {
       if (command[0][0] === "move") {
-        move[command[0]]
-        click[command[1]]
+        move(command[0])
+        click(command[1])
       } else {
-        move[command[1]]
-        click[command[0]]
+        move(command[1])
+        click(command[0])
       }
     }
   } else { // if not a move/click statement
