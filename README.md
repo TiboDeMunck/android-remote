@@ -24,15 +24,15 @@ Android APK &amp; NodeJS Rest API
 
 ### example: 
 ``` f5 + control ```  
--> presses control and f5 at the same time
+-> presses control and f5 at the same time  
 ``` down + control + shift ```  
--> press control, shift and down at the same time
+-> press control, shift and down at the same time  
 ``` click(right, true) + move(middle, 500) ```  
--> moves mouse to middle of width of screen and 500 pixels height, then double clicks
+-> moves mouse to middle of width of screen and 500 pixels height, then double clicks  
 ``` click() ```  
--> clicks once at position of mouse
+-> clicks once at position of mouse  
 ``` click(middle) + move(middle, middle) ```  
--> moves mouse to center of the screen and middle clicks
+-> moves mouse to center of the screen and middle clicks  
 ``` move(middle) ```  
 -> moves to center of the screen  
 please note that the order of the inputs is not important
