@@ -88,54 +88,14 @@ let checkUrl = function (url, checkList) {
 }
 
 //controls
-exports.fullscreen = function (req, res) {
-  pressKey("fullscreen")
-  res.send("success")
-}
-
-exports.forward = function (req, res) {
-  pressKey("plus")
-  res.send("success")
-}
-
-exports.backward = function (req, res) {
-  pressKey("minus")
-  res.send("success")
-}
-
-exports.close = function (req, res) {
-  robot.keyTap("w", "control")
-  res.send("success")
-}
-
-exports.play = function (req, res) {
-  pressKey("play")
-  res.send("success")
-}
-
-exports.louder = function (req, res) {
-  pressKey("louder")
-  res.send("success")
-}
-
-exports.quieter = function (req, res) {
-  pressKey("quieter")
-  res.send("success")
-}
-
-exports.mute = function (req, res) {
-  pressKey("mute")
-  res.send("success")
-}
-
-exports.next = function (req, res) {
-  pressKey("next")
-  res.send("success")
-}
-
-exports.previous = function (req, res) {
-  pressKey("previous")
-  res.send("success")
+exports.press_key = function (req, res) {
+  let keyName = req.body.key;
+  if (!keyName) res.send("No key was found.")
+  else {
+    if (keyName === "close") robot.keyTap("w", "control")
+    else pressKey(keyName)
+    res.send("success")
+  }
 }
 
 function pressKey(keyName) {
