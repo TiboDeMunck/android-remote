@@ -75,6 +75,7 @@ let getUrl = function (data) {
   array.forEach(element => {
     if (element.includes("http")) url = element
   });
+  if (url.includes("youtube") || url.includes("youtu")) url += "?has_verified=1"
   return url
 };
 
