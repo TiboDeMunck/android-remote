@@ -1,7 +1,8 @@
 const open = require('open');
 const robot = require("robotjs");
 const fs = require("fs")
-const defaultBrowser = require('x-default-browser');
+const exec = require('child_process').exec;
+
 let keys;
 try {
   keys = require("../keys/appKeys.json")
@@ -34,28 +35,48 @@ exports.play_video = function (req, res) {
     if (incognito === "true") defaultBrowser(function (err, response) { //check default browser
       let privacy = ""
       let browser = ""
-      if (response.identity == "msedgehtm") {
-        privacy = "--private"
-        browser = "MicrosoftEdge"
-      } else if (response.isIE) {
-        privacy = "-private"
-        browser = "iexplore"
-      } else if (response.isSafari) {
-        privacy = ""
-        browser = "safari"
-      } else if (response.isFirefox) {
-        privacy = "-private"
-        browser = "firefox"
-      } else if (response.isChrome) {
-        privacy = "--incognito"
-        browser = "chrome"
-      } else if (response.isChromium) {
-        privacy = "--incognito"
-        browser = "chromium"
-      } else if (response.isOpera) {
-        privacy = "--private"
-        browser = "opera"
+      switch(response) {
+        case "MSEdgeHTM": {
+          privacy = "--private"
+          browser = "MicrosoftEdge"
+          break;
+        }
+        case "IE.HTTP": {
+          privacy = "-private"
+          browser = "iexplore"
+          break;
+        }
+        case "SafariURL": {
+          privacy = ""
+          browser = "safari"
+          break;
+        }
+        case "FirefoxURL": {
+          privacy = "-private"
+          browser = "firefox"
+          break;
+        }
+        case "ChromeHTML": {
+          privacy = "--incognito"
+          browser = "chrome"
+          break;
+        }
+        case "ChromiumHTM": {
+          privacy = "--incognito"
+          browser = "chromium"
+          break;
+        }
+        case "OperaHTML": {
+          privacy = "--private"
+          browser = "opera"
+          break;
+        }
+        default: {
+          privacy = "--private"
+          browser = "MicrosoftEdge"
+        }
       }
+
       open(playUrl, {
           app: [browser, privacy]
         })
@@ -66,6 +87,32 @@ exports.play_video = function (req, res) {
       .then(() => res.send("success"))
       .catch((err) => res.send(err))
   } else res.send("Didn't receive a link")
+}
+
+function defaultBrowser(callback) {
+  let registryQuery = 'HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\Shell\\Associations\\URLAssociations\\http\\UserChoice';
+  let command = 'reg query ' + registryQuery + ' | findstr "ProgId"';
+
+  exec(command, function (err, stdout, stderr) {
+    let value;
+
+    if (err) {
+      if (stderr.length > 0) {
+        return callback('Unable to execute the query: ' + err);
+      } else {
+        // findstr failed due to not finding match => key is empty, default browser is IE
+        value = 'MSEdgeHTM';
+      }
+    }
+
+    if (!value){
+      let rule = /\s{1,}/g;
+      let array = stdout.trim().split(rule);
+      value = array[2]
+    }
+
+    callback(null, value);
+  })
 }
 
 //get url from incoming data
@@ -120,12 +167,12 @@ function pressKey(keyName) {
   }
 }
 
-function click(command){
+function click(command) {
   robot.mouseClick(command[1])
   if (command[2] === true) robot.mouseClick(command[1]) // extra click on double click
 }
 
-function move(command){
+function move(command) {
   robot.moveMouse(command[1], command[2])
 }
 
