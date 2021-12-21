@@ -19,7 +19,7 @@ app.listen(port);
 //cors
 app.use(cors())
 
-fs.writeFile('../ip.txt', `API server started on: ${ip.address()}:${port}`, (err) => {
+fs.writeFile('../ip.txt', `API server started on: ${ip.address("Ethernet", "ipv4")}:${port}`, (err) => {
   if (err) console.log(err)
 })
 
